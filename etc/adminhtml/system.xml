@@ -24,7 +24,7 @@
                     </depends>
                 </field>
 
-                <field id="cron_timing"  translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="cron_timing"  translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Cron Timing</label>
                     <source_model>Friendsta\Logcleaner\Model\Config\Cron</source_model>
                     <depends>

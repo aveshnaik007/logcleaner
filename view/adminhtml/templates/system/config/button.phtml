@@ -1,0 +1,57 @@
+<div class="pp-buttons-container">
+    <button id="<?php echo $block->getId() ?>" onclick="return false;">
+        <span><?php echo $block->escapeHtml($block->getButtonLabel()); ?></span>
+    </button>
+    <span class="logclean-indicator" id="logclean_span">
+        <img class="processing" hidden="hidden" alt="Collecting" style="margin:0 5px"
+             src="<?php echo $block->getViewFileUrl('images/process_spinner.gif') ?>"/>
+        <img class="logcleaned" hidden="hidden" alt="Collected" style="margin:-3px 5px"
+             src="<?php echo $block->getViewFileUrl('images/rule_component_apply.gif') ?>"/>
+        <span id="logclean_message_span"></span>
+    </span>
+</div>
+
+<script>
+    require([
+        'jquery',
+        'prototype'
+    ], function (jQuery) {
+
+        jQuery('#<?php echo $block->getId() ?>').click(function () {
+            //alert("here");
+            generatelogcleanbutton();
+        });
+
+        function generatelogcleanbutton() {
+            var logcleanSpan = jQuery('#logclean_span');
+            new Ajax.Request('<?= $block->getAjaxCheckUrl() ?>', {
+                method: 'get',
+                loaderArea: true,
+                asynchronous: true,
+                onCreate: function () {
+                    logcleanSpan.find('.logcleaned').hide();
+                    logcleanSpan.find('.processing').show();
+                    jQuery('#logclean_message_span').text('');
+                },
+                onSuccess: function (response) {
+                    logcleanSpan.find('.processing').hide();
+
+                    var resultText = '';
+                    if (response.status > 200) {
+                        resultText = response.statusText;
+                    } else {
+                        resultText = 'Success';
+                        logcleanSpan.find('.logcleaned').show();
+                    }
+                    jQuery('#logclean_message_span').text(resultText);
+
+                    var json = response.responseJSON;
+                    if (typeof json.time != 'undefined') {
+                        jQuery('#row_mageworx_alsobought_general_logclean_time').find('.value .time').text(json.time);
+                    }
+                }
+            });
+        }
+
+    });
+</script>
