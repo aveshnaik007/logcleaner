@@ -1,0 +1,22 @@
+{
+    "name": "Friendsta/Logcleaner",
+    "description": "This plugin is for emptying log files",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Daniel Bond",
+            "email": "selmonbhoi007@hotmail.com"
+        }
+    ],
+    "version": "1.0.0",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Friendsta\\Logcleaner\\": ""
+        }
+    }
+}
