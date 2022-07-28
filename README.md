@@ -17,7 +17,7 @@ In Magento 2 the log files are written by Magento every day and every time this 
       php bin/magento setup:static-content:deploy
   ```
 
-For any assistance or any customization contact me on [Email](aveshnaik007@hotmail.com) aveshnaik007@hotmail.com
+For any assistance or any customization contact me on aveshnaik007@hotmail.com
 
 ### **Feature**
 
