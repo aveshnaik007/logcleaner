@@ -2,7 +2,7 @@
 
 In Magento 2 the log files are written by Magento every day and every time this at some point some files can reach more then 1 GB. Most of time the developer will log into the server can clean this file to make some space on the drive. Most site admin or the owner doesn’t have a knowledge to clear these files. So created this plugin to help the site admin to clear these files on the server.
 
-To learn Magento development go to learningmagento.com [a link] (learningmagento.com)
+To learn Magento development go to learningmagento.com [r2hc]: learningmagento.com
 
 ### **Installing**
 
